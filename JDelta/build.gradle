@@ -1,0 +1,49 @@
+/*
+ *   Copyright 2011 Gian Perrone
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+jar {
+	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+dependencies {
+
+	compile group: 'asm', name: 'asm-all', version: '3.3.1'
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
+	compile group: 'com.google.guava', name: 'guava', version: 'r09'
+	
+//	testCompile group: 'com.googlecode.jmockit', name: 'jmockit', version: '0.999.8'
+	testCompile group: 'org.testng', name: 'testng', version: '6.2.1'
+	
+}
+
+//sourceSets.test.compileClasspath = configurations.testCompileMockit + sourceSets.test.compileClasspath
+//sourceSets.test.runtimeClasspath = configurations.testCompileMockit + sourceSets.test.runtimeClasspath
+
+repositories {
+	mavenCentral()
+}
+
+test {
+	useTestNG()
+//	options {
+//		listeners << 'mockit.integration.testng.Initializer'
+//	}
+}
