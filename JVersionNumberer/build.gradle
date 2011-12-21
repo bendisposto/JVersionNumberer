@@ -18,6 +18,7 @@
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
+sourceCompatibility = 1.6
 
 jar {
 	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
