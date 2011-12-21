@@ -1,18 +1,14 @@
-cli/build/
-cli/bin/
-cli/.classpath
-cli/.project
-cli/.settings/org.eclipse.jdt.core.prefs
-cli/.gradle/
-cli/logs/
 *.swp
 *.log
 *~
 ! .gitkeep
 .DS_Store
-cli/tmp/
-cli/PROB_LOGFILE_IS_UNDEFINED
-cli/.settings/org.eclipse.jdt.ui.prefs
-cli/src/main/resources/build.properties
-cli/config.groovy
-cli/.cache
+.gradle/
+JDelta/.classpath
+JDelta/.project
+JDelta/.settings/
+JDelta/bin/
+JVersionNumberer/.classpath
+JVersionNumberer/.project
+JVersionNumberer/.settings/
+JVersionNumberer/bin/
